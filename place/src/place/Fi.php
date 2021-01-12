@@ -17,7 +17,7 @@ class Fi extends PluginBase implements Listener{
 	public function onplace(BlockPlaceEvent $event){
 		$block = $event->getBlock();
 		$player = $event->getPlayer();
-		$player->getInventory()->addItem(Item::get(Item::CARROT,0,1));
+		$player->getInventory()->addItem(Item::get(Item::CARROT,0,1)->setCustomName("§l§b[§f마법당근§b]"));
 		$this->getScheduler()->scheduleDelayedTask(new Delayed($block), 0.01);
 		$player->sendMessage("남은 기회".self::$ChatCnt,self::$ChatCnt--);
 		if(self::$ChatCnt < 0)
